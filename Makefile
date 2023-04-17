@@ -35,7 +35,11 @@ run-rtpengine:
 run-kamailio:
 	cd modules/kamailio && make run
 
-
+push:
+	cd modules/postgres && make push
+	cd modules/redis && make push
+	cd modules/rtpengine && make push
+	cd modules/kamailio && make push
 
 rebuild-rtpengine:
 	docker rm -f rtpengine && make build-rtpengine && make run-rtpengine
